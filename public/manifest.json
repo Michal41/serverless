@@ -1,7 +1,7 @@
 
 {
-    "short_name": "GdziePoLek",
-    "name": "GdziePoLek",
+    "short_name": "AskMe",
+    "name": "AskMe",
     "icons": [
       {
         "src": "https://whereigetmymeds.azureedge.net/app/img/logo_gdziepolek_android.png",
@@ -50,7 +50,6 @@
       }
     ],
     "start_url": ".",
-    "description":"Aplikacja GdziePoLek na iPhone i Android. Dostęp do aptek i leków zawsze w zasięgu ręki.",
     "scope":"/app/",
     "display": "standalone",
     "theme_color": "#158FA1",
