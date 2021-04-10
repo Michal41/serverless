@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import {auth, createUserProfileDocument } from "../firebase/firebase.utils";
+import {createUseStyles} from 'react-jss'
 
 const SignUp = () => {
+  const classes = useStyles()
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,7 +34,7 @@ const SignUp = () => {
 
   return (
     <div>
-    <h2> Sign Up </h2>
+    <h2 className={classes.title}> Sign Up </h2>
     <span>Sign Up with your email and passoword </span>
 
     <form onSubmit={handleSubmit}>
@@ -82,6 +84,14 @@ const SignUp = () => {
   </div>
   )
 }
+
+const useStyles = createUseStyles({
+  title: {
+    color: 'green',
+    textAlign: 'left',
+    // text-align: 'left',
+  }
+})
 
 
 export default SignUp;
