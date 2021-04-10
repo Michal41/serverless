@@ -27,11 +27,20 @@ class App extends Component{
   componentWillUnmount(){
     this.unsubscribeFromAuth();
   }
+  logOut = () => {
+    auth.signOut();
+    this.setState({user: { id: '' }})
+  }
   render(){
     console.log(this.state)
     return(
     <div>
-      <button onClick={() => {auth.signOut()} }> sign out</button>
+      {this.state.user.id &&
+        <div>
+          <button onClick={this.logOut}> sign out</button>
+          <h1> logged user: {this.state.user.displayName}</h1>
+        </div>
+      }
     <SingIn/>
       <br />
       <br />
