@@ -1,6 +1,6 @@
 import './App.css';
 import SingIn from './components/SignIn';
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument, firestore } from "./firebase/firebase.utils";
 import { Component } from 'react'
 import SignUp from './components/SignUp';
 
@@ -32,7 +32,11 @@ class App extends Component{
     this.setState({user: { id: '' }})
   }
   render(){
-    console.log(this.state)
+    firestore.collection("articles").doc("articles").set({
+      name: "Los Angeles",
+      state: "CA",
+      country: "USA"
+  })
     return(
     <div>
       {this.state.user.id &&
