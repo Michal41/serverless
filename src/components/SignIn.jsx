@@ -39,7 +39,7 @@ const SingIn =() => {
         required
       />
       <div>
-        <button type="submit" value="Submit Form" > Sign in </button>
+        <button type="submit" value="Submit Form" > Sign in  </button>
         <button onClick={signInWithGoogle} value="Submit Form" > Sign in with google </button>
       </div>
     </form>
