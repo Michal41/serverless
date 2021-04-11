@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const NewPost = (props) => {
   const { currentUser } = props;
   const [postContent, setPostContent] = useState('');
-  const handleCreatePost = (event) => {
+  const handleCreateComment = (event) => {
     event.preventDefault();
     props.createPost(postContent)
     setPostContent('')
@@ -11,7 +11,7 @@ const NewPost = (props) => {
   return (
     <div>
       {currentUser.id &&
-        <form onSubmit={handleCreatePost}>
+        <form onSubmit={handleCreateComment}>
           New Post
           <input
             value={postContent}

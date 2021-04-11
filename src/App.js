@@ -3,7 +3,7 @@ import SingIn from './components/SignIn';
 import { auth, createUserProfileDocument, firestore } from "./firebase/firebase.utils";
 import { Component } from 'react'
 import SignUp from './components/SignUp';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import PostsContainer from './components/PostsContainer';
 
@@ -35,19 +35,18 @@ class App extends Component{
     this.setState({user: { id: '' }})
   }
   render(){
-  //   firestore.collection("articles").doc("articles").set({
-  //     name: "Los Angeles",
-  //     state: "CA",
-  //     country: "USA"
-  // })
     return(
-    <Router>
-      <NavBar currentUser={this.state.user} logOut={this.logOut} />
-      <Route exact path="/sign-in" component={SingIn} />
-      <Route exact path="/sign-up" component={SignUp} />
-      <Route exact path="/" render={()=>
-        (<PostsContainer currentUser={this.state.user} />)} />
-    </Router>
+      <div>
+        <Router>
+          <NavBar currentUser={this.state.user} logOut={this.logOut} />
+          <Switch>
+            <Route exact path="/" render={()=>
+              (<PostsContainer currentUser={this.state.user} />)} />
+            <Route exact path="/sign-in" component={SingIn} />
+            <Route exact path="/sign-up" component={SignUp} />
+          </Switch>
+        </Router>
+      </div>
     )
   }
 }
