@@ -35,23 +35,22 @@ const PostsContainer = (props) =>{
 
 
   const createComent = async (coment, docid)  => {
-    console.log('create coment')
-    console.log(coment)
-    console.log(docid)
-
-
-    await firestore.collection("Posts").doc(docid).set({
-      coments: [{coment: coment,
-      author: currentUser.id,
-      authorDisplayName: currentUser.displayName}]
+    const otherComents = posts.filter(item => item.docId === docid)[0].coments
+    console.log(otherComents)
+    await firestore.collection("Posts").doc(docid).update({
+      coments: [ ...otherComents, {
+        coment: coment,
+        author: currentUser.id,
+        authorDisplayName: currentUser.displayName }]
     })
-    // const postsArr = []
-    // await firestore.collection("Posts").get().then(function(querySnapshot) {
-    //   querySnapshot.forEach(function(doc) {
-    //     postsArr.push({ ...doc.data(), docId: doc.id })
-    //   });
-    // });
-    // setPosts(postsArr);
+
+    const postsArr = []
+    await firestore.collection("Posts").get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        postsArr.push({ ...doc.data(), docId: doc.id })
+      });
+    });
+    setPosts(postsArr);
   }
 
 

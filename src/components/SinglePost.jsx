@@ -5,7 +5,7 @@ import NewComent from './NewComent';
 const SinglePost = (props) => {
   const { currentUser, post, createComent } = props;
   const classes = useStyles()
-
+  console.log(post)
   return (
     <div className={classes.SinglePost}>
       post content: {post.content} < br/>
