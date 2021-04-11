@@ -3,7 +3,9 @@ import SingIn from './components/SignIn';
 import { auth, createUserProfileDocument, firestore } from "./firebase/firebase.utils";
 import { Component } from 'react'
 import SignUp from './components/SignUp';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import NavBar from './components/NavBar';
+import PostsContainer from './components/PostsContainer';
 
 class App extends Component{
   constructor(props){
@@ -39,20 +41,12 @@ class App extends Component{
   //     country: "USA"
   // })
     return(
-    <div>
-      {this.state.user.id &&
-        <div>
-          <button onClick={this.logOut}> sign out</button>
-          <h1> logged user: {this.state.user.displayName}</h1>
-        </div>
-      }
-    <SingIn/>
-      <br />
-      <br />
-      <br />
-      <br />
-    <SignUp />
-    </div>
+    <Router>
+      <NavBar currentUser={this.state.user} logOut={this.logOut} />
+      <Route exact path="/sign-in" component={SingIn} />
+      <Route exact path="/sign-up" component={SignUp} />
+      <Route exact path="/" component={PostsContainer} />
+    </Router>
     )
   }
 }
