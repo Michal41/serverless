@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {auth, createUserProfileDocument } from "../firebase/firebase.utils";
 import {createUseStyles} from 'react-jss'
+import {Link} from 'react-router-dom';
 
 const SignUp = () => {
   const classes = useStyles()
@@ -36,6 +37,7 @@ const SignUp = () => {
     <div>
     <h2 className={classes.title}> Sign Up </h2>
     <span>Sign Up with your email and passoword </span>
+    <Link to="/sign-in">Sign IN</Link>
 
     <form onSubmit={handleSubmit}>
 
