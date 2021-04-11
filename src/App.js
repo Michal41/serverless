@@ -32,11 +32,11 @@ class App extends Component{
     this.setState({user: { id: '' }})
   }
   render(){
-    firestore.collection("articles").doc("articles").set({
-      name: "Los Angeles",
-      state: "CA",
-      country: "USA"
-  })
+  //   firestore.collection("articles").doc("articles").set({
+  //     name: "Los Angeles",
+  //     state: "CA",
+  //     country: "USA"
+  // })
     return(
     <div>
       {this.state.user.id &&
