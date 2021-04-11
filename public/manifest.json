@@ -3,13 +3,28 @@
   "short_name" : "AskMe",
   "icons": [
       {
-          "src": "https://assets.berty.tech/files/favicon_blueprint--android-chrome-192x192_hufc1d34ab55aad656e921f4443b6ec54e_26165_192x0_resize_box_2.png",
-          "sizes": "192x192",
+          "src": "./64.png",
+          "sizes": "64x64",
           "type": "image/png"
       },
       {
-          "src": "https://assets.berty.tech/files/favicon_berty--android-chrome-512x512_hu8c11226219fbafadc0690fa2ac23a909_19505_512x0_resize_box_2.png",
+          "src": "./128.png",
+          "sizes": "128x128",
+          "type": "image/png"
+      },
+      {
+          "src": "./256.png",
+          "sizes": "256x256",
+          "type": "image/png"
+      },
+      {
+          "src": "./512.png",
           "sizes": "512x512",
+          "type": "image/png"
+      },
+      {
+          "src": "./1024.png",
+          "sizes": "1024x1024",
           "type": "image/png"
       }
   ],
