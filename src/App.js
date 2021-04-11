@@ -45,7 +45,8 @@ class App extends Component{
       <NavBar currentUser={this.state.user} logOut={this.logOut} />
       <Route exact path="/sign-in" component={SingIn} />
       <Route exact path="/sign-up" component={SignUp} />
-      <Route exact path="/" component={PostsContainer} />
+      <Route exact path="/" render={()=>
+        (<PostsContainer currentUser={this.state.user} />)} />
     </Router>
     )
   }
