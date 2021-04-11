@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NewPost from './NewPost';
 import {firestore } from "../firebase/firebase.utils";
+import SinglePost from './SinglePost';
 
 const PostsContainer = (props) =>{
   const [posts, setPosts] = useState([]);
@@ -15,25 +16,24 @@ const PostsContainer = (props) =>{
     setPosts(postsArr);
   },[]);
 
-  const createPost = (content) => {
-    firestore.collection("Posts").doc().set({
+  const createPost = async (content)  => {
+    await firestore.collection("Posts").doc().set({
       content: content,
       author: currentUser.id,
       authorDisplayName: currentUser.displayName,
     })
-    setPosts([...posts, {
-      content: content, author: currentUser.id,
-      authorDisplayName: currentUser.displayName,
-      key: currentUser.id  }]);
+    const postsArr = []
+    await firestore.collection("Posts").get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        postsArr.push({ ...doc.data(), docId: doc.id })
+      });
+    });
+    setPosts(postsArr);
   }
   return (
     <div>
       {posts.map(post => (
-        <div key={post.docId}>
-          post content: {post.content} < br/>
-          post author: {post.authorDisplayName} < br/>
-          < br/>< br/>
-        </div>
+        <SinglePost currentUser={currentUser} key={post.docId} post={post} />
       ))}
       posts container
       <NewPost createPost={createPost} currentUser={currentUser}/>
