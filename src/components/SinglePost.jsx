@@ -3,20 +3,15 @@ import {createUseStyles} from 'react-jss'
 import NewComent from './NewComent';
 
 const SinglePost = (props) => {
-  const { currentUser } = props;
+  const { currentUser, post, createComent } = props;
   const classes = useStyles()
-  const [post, setPost] = useState('');
-
-  useEffect(() => {
-    setPost(props.post)
-  }, []);
 
   return (
     <div className={classes.SinglePost}>
       post content: {post.content} < br/>
       author: {post.authorDisplayName} < br/>
       < br/>< br/>
-      <NewComent currentUser={currentUser} />
+      <NewComent docId={post.docId} createComent={createComent} currentUser={currentUser} />
     </div>
   )
 }

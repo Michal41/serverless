@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
 const NewComent = (props) => {
-  const { currentUser } = props;
+  const { currentUser, createComent, docId } = props;
   const [comentContent, setComentContent] = useState('');
-  const handleCreatePost = (event) => {
+  const handleCreateComent = (event) => {
     event.preventDefault();
-    // props.createPost(comentContent)
+    createComent(comentContent, docId)
     setComentContent('')
   }
   return (
     <div>
       {currentUser.id &&
-        <form onSubmit={handleCreatePost}>
+        <form onSubmit={handleCreateComent}>
           New coment
           <input
             value={comentContent}

@@ -21,6 +21,7 @@ const PostsContainer = (props) =>{
       content: content,
       author: currentUser.id,
       authorDisplayName: currentUser.displayName,
+      coments: [],
     })
     const postsArr = []
     await firestore.collection("Posts").get().then(function(querySnapshot) {
@@ -30,10 +31,35 @@ const PostsContainer = (props) =>{
     });
     setPosts(postsArr);
   }
+
+
+
+  const createComent = async (coment, docid)  => {
+    console.log('create coment')
+    console.log(coment)
+    console.log(docid)
+
+
+    await firestore.collection("Posts").doc(docid).set({
+      coments: [{coment: coment,
+      author: currentUser.id,
+      authorDisplayName: currentUser.displayName}]
+    })
+    // const postsArr = []
+    // await firestore.collection("Posts").get().then(function(querySnapshot) {
+    //   querySnapshot.forEach(function(doc) {
+    //     postsArr.push({ ...doc.data(), docId: doc.id })
+    //   });
+    // });
+    // setPosts(postsArr);
+  }
+
+
+
   return (
     <div>
       {posts.map(post => (
-        <SinglePost currentUser={currentUser} key={post.docId} post={post} />
+        <SinglePost createComent={createComent} currentUser={currentUser} key={post.docId} post={post} />
       ))}
       posts container
       <NewPost createPost={createPost} currentUser={currentUser}/>
