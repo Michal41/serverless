@@ -9,7 +9,7 @@ const PostsContainer = (props) =>{
   useEffect(() => {
     firestore.collection("Posts").get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
-        postsArr.push(doc.data())
+        postsArr.push({ ...doc.data(), docId: doc.id })
       });
     });
     setPosts(postsArr);
@@ -29,7 +29,7 @@ const PostsContainer = (props) =>{
   return (
     <div>
       {posts.map(post => (
-        <div key={post.author+post.content}>
+        <div key={post.docId}>
           post content: {post.content} < br/>
           post author: {post.authorDisplayName} < br/>
           < br/>< br/>
