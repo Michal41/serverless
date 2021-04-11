@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import {firestore } from "../firebase/firebase.utils";
-
 
 const NewPost = (props) => {
   const { currentUser } = props;

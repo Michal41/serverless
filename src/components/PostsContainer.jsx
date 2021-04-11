@@ -21,7 +21,10 @@ const PostsContainer = (props) =>{
       author: currentUser.id,
       authorDisplayName: currentUser.displayName,
     })
-    setPosts([...posts, { content: content, author: currentUser.id, authorDisplayName: currentUser.displayName }]);
+    setPosts([...posts, {
+      content: content, author: currentUser.id,
+      authorDisplayName: currentUser.displayName,
+      key: currentUser.id  }]);
   }
   return (
     <div>
