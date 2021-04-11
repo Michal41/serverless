@@ -3,6 +3,7 @@ import SingIn from './components/SignIn';
 import { auth, createUserProfileDocument, firestore } from "./firebase/firebase.utils";
 import { Component } from 'react'
 import SignUp from './components/SignUp';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 class App extends Component{
   constructor(props){
