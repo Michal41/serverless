@@ -1,5 +1,6 @@
 import { signInWithGoogle, auth } from "../firebase/firebase.utils.js";
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 
 
 const SingIn =() => {
@@ -23,7 +24,8 @@ const SingIn =() => {
   }
   return (
   <div>
-    <span> Sign in with your email and password </span>
+    <span> Sign in with your email and password </span> or &nbsp;
+    <Link to="/sign-up">Sign up</Link>
     <form onSubmit = {handleSubmit}>
       <input
         name="Email"
@@ -41,9 +43,10 @@ const SingIn =() => {
       />
       <div>
         <button type="submit" value="Submit Form" > Sign in  </button>
-        <button onClick={signInWithGoogle} value="Submit Form" > Sign in with google </button>
       </div>
     </form>
+    <button onClick={signInWithGoogle} value="Submit Form" > Sign in with google </button>
+
   </div>
 
   )
