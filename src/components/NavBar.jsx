@@ -1,12 +1,14 @@
 
 import React from 'react'
 import {Link} from 'react-router-dom';
+import {createUseStyles} from 'react-jss'
 
 const NavBar = (props) => {
+  const classes = useStyles()
   const { currentUser, logOut } = props;
   return(
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <Link to='/' className="navbar-brand">AskMe a question!</Link>
+    <Link to='/' className={classes.navbar_brand}>AskMe!</Link>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -21,5 +23,11 @@ const NavBar = (props) => {
     </nav>
   )
 }
+
+const useStyles = createUseStyles({
+  navbar_brand: {
+    color: "#99a845",
+  }
+})
 
 export default NavBar;
