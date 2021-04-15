@@ -36,7 +36,7 @@ const SignUp = () => {
   return (
     <div>
     <h2 className={classes.title}> Sign Up for Free! </h2>
-    <span>Sign Up with your email and passoword </span>
+    <span>Sign Up with your email and passoword </span> or &nbsp;
     <Link to="/sign-in">Sign IN</Link>
 
     <form onSubmit={handleSubmit}>
