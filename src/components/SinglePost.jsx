@@ -21,9 +21,10 @@ const SinglePost = (props) => {
 const useStyles = createUseStyles({
   SinglePost: {
     border: '2px solid gray',
-    width: '50%',
+    width: '80%',
     margin: 'auto',
     marginBottom: '1em',
+    backgroundColor: 'lightblue'
   }
 })
 
