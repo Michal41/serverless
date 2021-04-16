@@ -41,7 +41,17 @@ class App extends Component{
           <NavBar currentUser={this.state.user} logOut={this.logOut} />
           <Switch>
             <Route exact path="/" render={()=>
-              (<PostsContainer currentUser={this.state.user} />)} />
+              (<PostsContainer category={'main'} currentUser={this.state.user} />)} />
+            <Route exact path="/rtv" render={()=>
+              (<PostsContainer category={'rtv'} currentUser={this.state.user} />)} />
+            <Route exact path="/agd" render={()=>
+              (<PostsContainer category={'agd'} currentUser={this.state.user} />)} />
+            <Route exact path="/komputery" render={()=>
+              (<PostsContainer category={'computers'} currentUser={this.state.user} />)} />
+            <Route exact path="/budownictwo" render={()=>
+              (<PostsContainer category={'building'} currentUser={this.state.user} />)} />
+            <Route exact path="/samochody" render={()=>
+              (<PostsContainer category={'cars'} currentUser={this.state.user} />)} />
             <Route exact path="/sign-in" component={SingIn} />
             <Route exact path="/sign-up" component={SignUp} />
           </Switch>

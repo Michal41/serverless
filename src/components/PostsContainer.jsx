@@ -5,28 +5,33 @@ import SinglePost from './SinglePost';
 
 const PostsContainer = (props) =>{
   const [posts, setPosts] = useState([]);
-  const { currentUser } = props;
+  const { currentUser, category } = props;
   const postsArr = []
   useEffect(() => {
     firestore.collection("Posts").get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
-        postsArr.push({ ...doc.data(), docId: doc.id })
+        if(doc.data().category===category){
+          postsArr.push({ ...doc.data(), docId: doc.id })
+        }
       });
     });
     setPosts(postsArr);
-  },[]);
-
+  }, []);
   const createPost = async (content)  => {
     await firestore.collection("Posts").doc().set({
       content: content,
       author: currentUser.id,
       authorDisplayName: currentUser.displayName,
+      category: category,
       coments: [],
     })
     const postsArr = []
+
     await firestore.collection("Posts").get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
-        postsArr.push({ ...doc.data(), docId: doc.id })
+        if(doc.data().category===category){
+          postsArr.push({ ...doc.data(), docId: doc.id })
+        }
       });
     });
     setPosts(postsArr);
@@ -47,7 +52,9 @@ const PostsContainer = (props) =>{
     const postsArr = []
     await firestore.collection("Posts").get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
-        postsArr.push({ ...doc.data(), docId: doc.id })
+        if(doc.data().category===category){
+          postsArr.push({ ...doc.data(), docId: doc.id })
+        }
       });
     });
     setPosts(postsArr);
