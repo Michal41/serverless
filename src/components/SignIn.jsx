@@ -27,8 +27,7 @@ const SingIn =() => {
   return (
   <div>
     <h2 className={classes.title}>Sign In</h2>
-    <span> Sign in with your email and password </span> or &nbsp;
-    <Link to="/sign-up">Sign up</Link>
+    <span> Sign in with your email and password </span><br/>
     <form onSubmit = {handleSubmit}>
       <input className={classes.fields}
         name="Email"

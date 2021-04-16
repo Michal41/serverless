@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import {createUseStyles} from 'react-jss'
 
 const NewPost = (props) => {
+  const classes = useStyles()
   const { currentUser } = props;
   const [postContent, setPostContent] = useState('');
   const handleCreateComment = (event) => {
@@ -13,7 +15,7 @@ const NewPost = (props) => {
       {currentUser.id &&
         <form onSubmit={handleCreateComment}>
           New Post
-          <input
+          <input className={classes.NewPost}
             value={postContent}
             onChange={(e) => setPostContent(e.target.value)}
           />
@@ -23,5 +25,16 @@ const NewPost = (props) => {
     </div>
   );
 };
+
+const useStyles = createUseStyles({
+  NewPost: {
+    border: '4px double gray',
+    borderRadius: '18px',
+    
+    width: '80%',
+    marginBottom: '25px',
+    backgroundColor: 'lightblue'
+  }
+})
 
 export default NewPost;

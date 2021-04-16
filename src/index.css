@@ -1,5 +1,5 @@
 body {
-  background-color: #efeff5;
+  background-color: #404040;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -9,8 +9,8 @@ body {
   font-size: 14;
 }
 h1 {
-  color: #99a845;
-  /*color: #3366cc;*/
+  /*color: #99a845;*/
+  color: #3366cc;
   text-align: center;
 }
 
