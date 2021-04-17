@@ -35,51 +35,50 @@ const SignUp = () => {
 
   return (
     <div>
-    <h2 className={classes.title}> Sign Up </h2>
-    <span>Sign Up with your email and passoword </span>
-    <Link to="/sign-in">Sign IN</Link>
+    <h2 className={classes.title}> Sign Up for Free! </h2>
+    <span>Sign Up with your email and passoword </span><br/>
 
     <form onSubmit={handleSubmit}>
 
-      <input
+      <input className={classes.fields}
         type="text"
         name="DisplayName"
         value={displayName}
         label="Display name"
         onChange={handleChange}
-        placeholder="displayName"
+        placeholder="Display Name"
         required
       />
 
-      <input
+      <input className={classes.fields}
         type="email"
         name="Email"
         value={email}
-        placeholder="email"
+        placeholder="Email"
         onChange={handleChange}
         required
       />
 
-      <input
+      <input className={classes.fields}
         type="password"
         name="Password"
         value={password}
-        placeholder="password"
+        placeholder="Password"
         onChange={handleChange}
         required
       />
-      <input
+      <input className={classes.fields}
         type="password"
         name="ConfirmPassword"
         value={confirmPassword}
-        placeholder="password"
+        placeholder="Confirm Password"
         onChange={handleChange}
         required
       />
       <button
         type="submit"
       >
-        Create account
+        Create Account
       </button>
     </form>
 
@@ -89,9 +88,18 @@ const SignUp = () => {
 
 const useStyles = createUseStyles({
   title: {
-    color: 'green',
+    color: '#df80ff',
     textAlign: 'left',
     // text-align: 'left',
+  },
+  fields: {
+    border: '2px solid gray',
+    borderRadius: '5px',
+    maxWidth: "200px",
+    width: '80%',
+    margin: 'auto',
+    marginBottom: '1em',
+    textAlign: 'auto',
   }
 })
 

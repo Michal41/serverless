@@ -39,6 +39,7 @@ const PostsContainer = (props) =>{
 
 
 
+
   const createComent = async (coment, docid)  => {
     const otherComents = posts.filter(item => item.docId === docid)[0].coments
     console.log(otherComents)
@@ -64,11 +65,10 @@ const PostsContainer = (props) =>{
 
   return (
     <div>
+      <br/><NewPost createPost={createPost} currentUser={currentUser}/><br/>
       {posts.map(post => (
         <SinglePost createComent={createComent} currentUser={currentUser} key={post.docId} post={post} />
       ))}
-      posts container
-      <NewPost createPost={createPost} currentUser={currentUser}/>
     </div>
   );
 };
