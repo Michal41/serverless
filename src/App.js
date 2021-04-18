@@ -10,21 +10,38 @@ import PostsContainer from './components/PostsContainer';
 class App extends Component{
   constructor(props){
     super(props);
-    this.state={ user: { id: '' }}
+    this.state={ user: { id: '', place: '' }}
   }
   unsubscribeFromAuth = null;
+
+
   componentDidMount(){
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if(userAuth){
-      const userRef = await createUserProfileDocument(userAuth);
-      userRef.onSnapshot( (snapShot) => {
-        this.setState({ user:{
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot( (snapShot) => {
+          this.setState({ user:{
             id:snapShot.id,
             ...snapShot.data()
-        }});
-      });
-    }
+          }});
+        });
+      }
     });
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.setGpsPosition);
+    } else {
+      console.log('not accepted')
+    }
+  }
+
+  setGpsPosition = async (position) => {
+      const lat = position.coords.latitude
+      const long = position.coords.longitude
+      const apiKey = '8dcc3b5dfd66da0276fc0e82d7bfe202'
+      const apiRespone = await fetch(`http://api.positionstack.com/v1/reverse?access_key=${apiKey}&query=${lat},${long}`)
+      const responseJson = await apiRespone.json()
+      const place = responseJson.data ? responseJson.data[0].name : ''
+      this.setState({user: {...this.state.user, place}})
   }
 
   componentWillUnmount(){
