@@ -25,7 +25,7 @@ const SingIn =() => {
     onchange(event.target.value)
   }
   return (
-  <div>
+  <div className="logIn">
     <h2 className={classes.title}>Sign In</h2>
     <span> Sign in with your email and password </span><br/>
     <form onSubmit = {handleSubmit}>

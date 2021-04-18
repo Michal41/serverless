@@ -8,25 +8,21 @@ const SinglePost = (props) => {
   const classes = useStyles()
   return (
     <div className={classes.SinglePost}>
+      <div className="containerYEs">
       post content: {post.content} < br/>
       author: {post.authorDisplayName} < br/>
       < br/>
       <ComentsList coments={post.coments}/>
       < br/>
-      <NewComent docId={post.docId} createComent={createComent} currentUser={currentUser} />
+        <NewComent docId={post.docId} createComent={createComent} currentUser={currentUser} />
+      </div>
     </div>
   )
 }
 
 const useStyles = createUseStyles({
   SinglePost: {
-    border: '4px double gray',
-    borderRadius: '18px',
-    
-    width: '80%',
-    margin: 'auto',
-    marginBottom: '1em',
-    backgroundColor: 'lightblue'
+   
   }
 })
 

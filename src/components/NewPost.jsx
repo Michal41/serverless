@@ -11,11 +11,11 @@ const NewPost = (props) => {
     setPostContent('')
   }
   return (
-    <div>
+    <div className="maininput">
       {currentUser.id &&
         <form onSubmit={handleCreateComment}>
-          New Post
-          <input className={classes.NewPost}
+        <input className={classes.NewPost}
+          placeholder="Write question"
             value={postContent}
             onChange={(e) => setPostContent(e.target.value)}
           />
@@ -28,12 +28,7 @@ const NewPost = (props) => {
 
 const useStyles = createUseStyles({
   NewPost: {
-    border: '4px double gray',
-    borderRadius: '18px',
-    
-    width: '80%',
-    marginBottom: '25px',
-    backgroundColor: 'lightblue'
+  
   }
 })
 
