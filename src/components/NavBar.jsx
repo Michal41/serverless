@@ -20,13 +20,13 @@ const NavBar = (props) => {
           </div>
           </div>
           <div className="buttons">
-        {currentUser.id && <Link className="nav-item nav-link active" to='/rtv'> RTV</Link> }
-        {currentUser.id && <Link className="nav-item nav-link active" to='/agd'> AGD</Link> }
-        {currentUser.id && <Link className="nav-item nav-link active" to='/komputery'> Computers</Link> }
-        {currentUser.id && <Link className="nav-item nav-link active" to='/budownictwo'> Building</Link> }
-        {currentUser.id && <Link className="nav-item nav-link active" to='/samochody'> Cars</Link> }
-        {!currentUser.id && <Link className="nav-item nav-link active" to='/sign-up'> Sign up</Link> }
-        {!currentUser.id && <Link className="nav-item nav-link active" to='/sign-in'> Sign in</Link> }
+            {currentUser.id && <Link className="nav-item nav-link active" to='/rtv'> RTV</Link> }
+            {currentUser.id && <Link className="nav-item nav-link active" to='/agd'> AGD</Link> }
+            {currentUser.id && <Link className="nav-item nav-link active" to='/komputery'> Computers</Link> }
+            {currentUser.id && <Link className="nav-item nav-link active" to='/budownictwo'> Building</Link> }
+            {currentUser.id && <Link className="nav-item nav-link active" to='/samochody'> Cars</Link> }
+            {!currentUser.id && <Link className="nav-item nav-link active" to='/sign-up'> Sign up</Link> }
+            {!currentUser.id && <Link className="nav-item nav-link active" to='/sign-in'> Sign in</Link> }
             {currentUser.id && <button className='btn btn-danger' onClick={logOut}> sign out</button>}
             </div>
       </div>
