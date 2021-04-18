@@ -8,7 +8,7 @@ const NavBar = (props) => {
   const { currentUser, logOut } = props;
   return (
     <nav className={`navbar navbar-expand-lg navbar navbar-dark bg-dark`}>
-      <Link to='/' className={classes.ask} style={{textDecoration: "none"}}><i className="far fa-comment-dots"></i><span>Ask me!</span></Link>
+      <a href='/' className={classes.ask} style={{textDecoration: "none"}}><i className="far fa-comment-dots"></i><span>Ask me!</span></a>
       <button to='/' className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
