@@ -17,7 +17,7 @@ const PostsContainer = (props) =>{
       });
     });
     setPosts(postsArr);
-  }, []);
+  }, [category]);
   const createPost = async (content)  => {
     const cleanContent= await replaceCurseWords(content)
     await firestore.collection("Posts").doc().set({
