@@ -308,15 +308,6 @@ body {
     font-size: 13px;
   }
 
-  .nav-item {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    font-size: 11px;
-    width: 70%;
-    margin: 0;
-  }
-
   .buttons {
     width: 25vw;
     position: absolute;
