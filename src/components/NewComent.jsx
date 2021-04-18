@@ -9,11 +9,11 @@ const NewComent = (props) => {
     setComentContent('')
   }
   return (
-    <div>
+    <div className="addComment">
       {currentUser.id &&
         <form onSubmit={handleCreateComent}>
-          New coment
-          <input
+        <input
+            placeholder="New comment"
             value={comentContent}
             onChange={(e) => setComentContent(e.target.value)}
           />

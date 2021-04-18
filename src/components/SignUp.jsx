@@ -34,11 +34,11 @@ const SignUp = () => {
   }
 
   return (
-    <div>
+    <div className="signUp">
     <h2 className={classes.title}> Sign Up for Free! </h2>
     <span>Sign Up with your email and passoword </span><br/>
 
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="inputSignUp">
 
       <input className={classes.fields}
         type="text"

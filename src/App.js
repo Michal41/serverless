@@ -36,9 +36,10 @@ class App extends Component{
   }
   render(){
     return(
-      <div>
+      <div className="mainDiv">
         <Router>
           <NavBar currentUser={this.state.user} logOut={this.logOut} />
+          <h1>AskMe a question!</h1>
           <Switch>
             <Route exact path="/" render={()=>
               (<PostsContainer category={'main'} currentUser={this.state.user} />)} />
@@ -56,7 +57,6 @@ class App extends Component{
             <Route exact path="/sign-up" component={SignUp} />
           </Switch>
         </Router>
-        <h1>AskMe a question!</h1>
       </div>
     )
   }
