@@ -16,7 +16,7 @@ const NavBar = (props) => {
         <div className="navbar-nav">
           <div className='header'>
           <div className='logo'>
-          <div><i class="far fa-comment-dots"></i><span>Ask me!</span></div>
+          <div><i className="far fa-comment-dots"></i><span>Ask me!</span></div>
           </div>
           </div>
           <div className="buttons">
@@ -42,7 +42,7 @@ const useStyles = createUseStyles({
   ask: {
     color: "white",
     marginLeft: 'auto',
-    marginRight: 'auto', 
+    marginRight: 'auto',
     fontSize: '17px',
     display: 'flex',
     justifyContent: 'center',

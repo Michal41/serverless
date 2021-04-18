@@ -145,7 +145,6 @@ body {
   padding: 30px;
   box-sizing: border-box;
   transition: .2s;
-  z-index: -2;
 }
 
 .containerYEs::after {
