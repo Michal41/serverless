@@ -23,6 +23,7 @@ const PostsContainer = (props) =>{
     await firestore.collection("Posts").doc().set({
       content: cleanContent,
       author: currentUser.id,
+      place: currentUser.place,
       authorDisplayName: currentUser.displayName,
       category: category,
       coments: [],
@@ -59,7 +60,6 @@ const PostsContainer = (props) =>{
     });
     setPosts(postsArr);
   }
-
   return (
     <div>
       <br/><NewPost createPost={createPost} currentUser={currentUser}/><br/>

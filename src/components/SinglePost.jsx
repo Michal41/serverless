@@ -11,6 +11,11 @@ const SinglePost = (props) => {
       <div className="containerYEs">
       post content: {post.content} < br/>
       author: {post.authorDisplayName} < br/>
+      {post.place &&
+        <div>
+          post created in: {post.place}
+        </div>
+      }
       < br/>
       <ComentsList coments={post.coments}/>
       < br/>
@@ -22,7 +27,7 @@ const SinglePost = (props) => {
 
 const useStyles = createUseStyles({
   SinglePost: {
-   
+
   }
 })
 
