@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {auth, createUserProfileDocument } from "../firebase/firebase.utils";
 import {createUseStyles} from 'react-jss'
-import {Link} from 'react-router-dom';
 
 const SignUp = () => {
   const classes = useStyles()
@@ -31,6 +30,10 @@ const SignUp = () => {
     }catch (error){
       console.log(error);
     }
+  }
+
+  if (auth.currentUser) {
+    window.location='/'
   }
 
   return (

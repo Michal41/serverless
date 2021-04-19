@@ -1,12 +1,10 @@
 import { signInWithGoogle, auth } from "../firebase/firebase.utils.js";
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
 import {createUseStyles} from 'react-jss'
 
 
 const SingIn =() => {
   const classes = useStyles()
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,6 +14,7 @@ const SingIn =() => {
       await auth.signInWithEmailAndPassword(email,password);
       setEmail('')
       setPassword('')
+
     } catch(error){
       console.log(error);
     }
@@ -24,7 +23,13 @@ const SingIn =() => {
     const onchange = eval(`set${event.target.name}`)
     onchange(event.target.value)
   }
+
+  if (auth.currentUser) {
+    window.location='/'
+  }
+
   return (
+
   <div className="logIn">
     <h2 className={classes.title}>Sign In</h2>
     <span> Sign in with your email and password </span><br/>
@@ -64,7 +69,7 @@ const useStyles = createUseStyles({
   fields: {
     border: '2px solid gray',
     borderRadius: '5px',
-    maxWidth: "200px",    
+    maxWidth: "200px",
     width: '80%',
     margin: 'auto',
     marginBottom: '1em',
