@@ -3,9 +3,11 @@ import NewPost from './NewPost';
 import {firestore } from "../firebase/firebase.utils";
 import SinglePost from './SinglePost';
 import replaceCurseWords from '../replaceCurseWords';
+import SeachPost from './SearchPost';
 
 const PostsContainer = (props) =>{
   const [posts, setPosts] = useState([]);
+  const [queryInput, setQueryInput] = useState('');
   const { currentUser, category } = props;
   const postsArr = []
   useEffect(() => {
@@ -17,7 +19,7 @@ const PostsContainer = (props) =>{
       });
     });
     setPosts(postsArr);
-  }, [category]);
+  }, []);
   const createPost = async (content)  => {
     const cleanContent= await replaceCurseWords(content)
     await firestore.collection("Posts").doc().set({
@@ -60,10 +62,14 @@ const PostsContainer = (props) =>{
     });
     setPosts(postsArr);
   }
+  const setQueryFunc = (event) => {
+    setQueryInput(event.target.value)
+  }
   return (
     <div>
       <br/><NewPost createPost={createPost} currentUser={currentUser}/><br/>
-      {posts.map(post => (
+      <SeachPost searchFunc={setQueryFunc} searchInput={queryInput} />
+      {posts.filter(post => post.content.includes(queryInput)).map(post => (
         <SinglePost createComent={createComent} currentUser={currentUser} key={post.docId} post={post} />
       ))}
     </div>
