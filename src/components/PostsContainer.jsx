@@ -23,7 +23,7 @@ const PostsContainer = (props) =>{
     await firestore.collection("Posts").doc().set({
       content: cleanContent,
       author: currentUser.id,
-      place: currentUser.place,
+      place: currentUser.place ? currentUser.place: '',
       authorDisplayName: currentUser.displayName,
       category: category,
       coments: [],
